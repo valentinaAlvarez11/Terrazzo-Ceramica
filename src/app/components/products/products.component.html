@@ -1,0 +1,30 @@
+<section class="section products-section products-page" id="products">
+  <div class="container">
+    <div class="products-header">
+      <span class="products-badge">Nuestros productos</span>
+      <h2 class="products-title">Elige tu estilo</h2>
+      <p class="products-subtitle">Cerámica artesanal para cada espacio.</p>
+    </div>
+
+    <div class="products-grid">
+      @for (category of categories; track category.slug) {
+        <a [routerLink]="['/productos', category.slug]" class="product-card product-card-link">
+          <div class="product-image">
+            @if (category.image) {
+              <img [src]="'/' + category.image" [alt]="category.name" class="product-img">
+            } @else {
+              <div class="product-image-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">🖼️</span>
+                <span class="placeholder-text">{{ category.name }}</span>
+              </div>
+            }
+          </div>
+          <div class="product-footer">
+            <h3 class="product-name">{{ category.name }}</h3>
+            <span class="btn-product">Ver más</span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

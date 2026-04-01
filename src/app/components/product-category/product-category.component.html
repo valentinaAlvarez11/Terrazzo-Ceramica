@@ -1,0 +1,476 @@
+<section class="section category-section category-page">
+  <div class="container">
+    @if (category) {
+      <div class="category-header">
+        <span class="category-badge">{{ category.name }}</span>
+        <h1 class="category-title">{{ category.name }}</h1>
+      </div>
+
+      @if (category.slug === 'avisos-especiales') {
+        <div class="avisos-grid">
+          @for (filename of avisosEspecialesImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="avisoImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="avisoImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'fondos-piscina') {
+        <div class="avisos-grid">
+          @for (filename of fondosPiscinaImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="fondosPiscinaImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="fondosPiscinaImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'juegos') {
+        <div class="avisos-grid">
+          @for (filename of juegosImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="juegosImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="juegosImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'listelos-en-png') {
+        <div class="avisos-grid">
+          @for (filename of listelosImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="listelosImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="listelosImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'murales') {
+        <div class="avisos-grid">
+          @for (filename of muralesImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="muralesImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="muralesImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'cenefas-png') {
+        <div class="avisos-grid">
+          @for (filename of cenefasImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img
+                    class="avisos-img cenefas-img"
+                    [src]="cenefasImageUrl(filename)"
+                    [alt]="avisoLabel(filename)"
+                  >
+                  <figcaption class="avisos-caption cenefas-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img cenefas-modal-img"
+                [src]="cenefasImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'religiosos-png') {
+        <div class="avisos-grid">
+          @for (filename of religiososImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="religiososImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="religiososImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'rosetones-en-png') {
+        <div class="avisos-grid">
+          @for (filename of rosetonesImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="rosetonesImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="rosetonesImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'nomenclaturas') {
+        <div class="avisos-grid">
+          @for (filename of nomenclaturasImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="nomenclaturasImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="nomenclaturasImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'senaletica') {
+        <div class="avisos-grid">
+          @for (filename of senaleticaImages; track filename) {
+            <div class="product-card-with-cart">
+              <button
+                type="button"
+                class="avisos-card-btn"
+                (click)="openAviso(filename)"
+                [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+              >
+                <figure class="avisos-card">
+                  <img class="avisos-img" [src]="senaleticaImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                </figure>
+              </button>
+              <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
+            </div>
+          }
+        </div>
+
+        @if (selectedAvisoFilename) {
+          <div class="avisos-modal-backdrop" (click)="closeAviso()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeAviso()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              <img
+                class="avisos-modal-img"
+                [src]="senaleticaImageUrl(selectedAvisoFilename)"
+                [alt]="avisoLabel(selectedAvisoFilename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedAvisoToCart(); closeAviso()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedAvisoFilename) }}</div>
+            </div>
+          </div>
+        }
+      } @else if (category.slug === 'tocetos-en-ceramica') {
+        <div class="tocetos-catalog">
+          <p class="tocetos-intro">
+            Catálogo de tocetos: <strong>Línea artística</strong> y <strong>Línea legado</strong>.
+          </p>
+
+          @for (section of tocetosSections; track section.id) {
+            <section
+              class="tocetos-section"
+              [attr.id]="'tocetos-' + section.id"
+              [class.tocetos-section--ceramica]="section.id === 'ceramica'"
+              [class.tocetos-section--artistica]="section.id === 'artistica'"
+              [class.tocetos-section--legado]="section.id === 'legado'"
+            >
+              @if (section.title || section.lineBadge || section.subtitle) {
+                <header class="tocetos-section-head">
+                  @if (section.lineBadge) {
+                    <span class="tocetos-line-badge">{{ section.lineBadge }}</span>
+                  }
+                  @if (section.title) {
+                    <h2 class="tocetos-section-title">{{ section.title }}</h2>
+                  }
+                  @if (section.subtitle) {
+                    <p class="tocetos-section-subtitle">{{ section.subtitle }}</p>
+                  }
+                </header>
+              }
+
+              <div class="avisos-grid tocetos-grid">
+                @for (filename of section.filenames; track filename) {
+                  <div class="product-card-with-cart">
+                    <button
+                      type="button"
+                      class="avisos-card-btn"
+                      (click)="openToceto(section.id, filename)"
+                      [attr.aria-label]="'Ver ' + avisoLabel(filename)"
+                    >
+                      <figure class="avisos-card">
+                        <img
+                          class="avisos-img"
+                          [src]="tocetoImageUrl(section.id, filename)"
+                          [alt]="avisoLabel(filename)"
+                        >
+                        <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                      </figure>
+                    </button>
+                    <button type="button" class="btn-add-cart" (click)="addTocetoToCart($event, section.id, filename)">Añadir al carrito</button>
+                  </div>
+                }
+              </div>
+            </section>
+          }
+        </div>
+
+        @if (selectedToceto) {
+          <div class="avisos-modal-backdrop" (click)="closeToceto()">
+            <div class="avisos-modal" (click)="$event.stopPropagation()">
+              <button type="button" class="avisos-modal-close" (click)="closeToceto()" aria-label="Cerrar">
+                ✕
+              </button>
+
+              @if (tocetoSectionTitle(selectedToceto.line)) {
+                <p class="tocetos-modal-section">{{ tocetoSectionTitle(selectedToceto.line) }}</p>
+              }
+              <img
+                class="avisos-modal-img"
+                [src]="tocetoImageUrl(selectedToceto.line, selectedToceto.filename)"
+                [alt]="avisoLabel(selectedToceto.filename)"
+              >
+              <button type="button" class="avisos-modal-add" (click)="addSelectedTocetoToCart(); closeToceto()">Añadir al carrito</button>
+              <div class="avisos-modal-title">{{ avisoLabel(selectedToceto.filename) }}</div>
+            </div>
+          </div>
+        }
+      } @else {
+        <div class="category-image-space">
+          @if (category.image) {
+            <img [src]="assetUrl(category.image)" [alt]="category.name" class="category-img">
+          } @else {
+            <div class="category-image-placeholder">
+              <span class="placeholder-icon" aria-hidden="true">🖼️</span>
+              <p class="placeholder-text">Espacio para imágenes de {{ category.name }}</p>
+            </div>
+          }
+        </div>
+      }
+    } @else {
+      <div class="category-not-found">
+        <h2>Categoría no encontrada</h2>
+        <a [routerLink]="['/productos']" class="btn-product">Ver todos los productos</a>
+      </div>
+    }
+  </div>
+</section>
