@@ -1,48 +1,90 @@
 <article class="section about-page" aria-labelledby="about-page-title">
-  <div class="container">
-    <header class="about-header">
-      <span class="about-badge">Terrazzo Taller Cerámico</span>
+  <div class="container about-shell">
+    <header class="about-hero">
+      <span class="about-badge">Terrazzo Cerámica</span>
       <h1 id="about-page-title" class="about-title">Sobre nosotros</h1>
-      <p class="about-lead">
-        Somos un taller dedicado a la cerámica pintada a mano: piezas únicas donde el oficio, el color y la textura cuentan una historia en cada detalle.
-      </p>
     </header>
 
-    <section class="about-block" aria-labelledby="about-historia-heading">
-      <h2 id="about-historia-heading" class="about-block-title">Nuestra historia</h2>
-      <div class="about-prose">
-        <p>
-          Terrazzo nace del encuentro entre la tradición alfarera y el deseo de acercar la cerámica artesanal a hogares y espacios que buscan autenticidad. Trabajamos el barro con respeto por el material y celebramos el proceso: del diseño al pintado, del secado al horno, hasta la pieza final lista para formar parte de tu día a día.
-        </p>
-        <p>
-          A lo largo del tiempo hemos explorado formatos y colecciones —desde murales y fondos hasta rosetones y tocetos— siempre con la misma convicción: que cada obra refleje el cuidado de quien la hizo y la personalidad de quien la elige.
-        </p>
-      </div>
-    </section>
+    <!-- Parte 1: empresa + productos (solo texto, dos columnas en pantalla ancha) -->
+    <div class="about-stage about-stage--light" aria-label="Empresa y productos">
+      <article class="about-card" aria-labelledby="about-empresa-heading">
+        <h2 id="about-empresa-heading" class="about-card__title">Nuestra empresa</h2>
+        <div class="about-prose about-prose--compact">
+          <p>
+            La empresa <strong class="about-brand">TERRAZZO CERAMICA</strong> es el producto de una empresa familiar,
+            encargada de la decoración y comercialización de baldosas de gres y cerámica pintadas a mano, utilizadas
+            para la decoración de interiores y exteriores en diferentes ambientes arquitectónicos, que satisface las
+            necesidades del mercado actual.
+          </p>
+          <p>
+            Para este propósito la empresa cuenta con un proceso productivo que garantiza una alta calidad del
+            producto, y proveedores que garantizan la calidad de sus materias primas, buscando siempre la mejora
+            continua en sus diseños para lograr satisfacer las necesidades del mercado.
+          </p>
+        </div>
+      </article>
 
-    <section class="about-grid" aria-label="Misión y visión">
-      <div class="about-card">
-        <h2 class="about-card-title">Misión</h2>
-        <p class="about-card-text">
-          Crear cerámica de autor con acabados impecables, ofreciendo piezas decorativas y funcionales que inspiren y perduren, con un servicio cercano y transparente.
-        </p>
-      </div>
-      <div class="about-card">
-        <h2 class="about-card-title">Visión</h2>
-        <p class="about-card-text">
-          Ser un referente de cerámica artesanal colombiana, reconocida por la calidad del trabajo manual, la innovación en diseños y el vínculo directo con quienes confían en nuestro taller.
-        </p>
-      </div>
-    </section>
+      <article class="about-card about-card--accent" aria-labelledby="about-productos-heading">
+        <h2 id="about-productos-heading" class="about-card__title">Los productos Terrazzo</h2>
+        <div class="about-prose about-prose--compact">
+          <p>
+            Los productos TERRAZZO son el complemento decorativo ideal para crear ambientes rústicos en interiores y
+            exteriores que generen un ambiente cálido y hogareño.
+          </p>
+          <p>
+            El gres ofrece unas cualidades de resistencia alta y la cerámica blanca es el complemento ideal para su
+            decoración ambiental o diseños decorativos, ambos materiales embellecidos con los diseños exclusivos y
+            acabados de nuestros artesanos y artesanas logran una pieza de valor artístico única y duradera en el
+            tiempo.
+          </p>
+        </div>
+      </article>
+    </div>
 
-    <section class="about-block about-block--accent" aria-labelledby="about-valores-heading">
-      <h2 id="about-valores-heading" class="about-block-title">Lo que nos define</h2>
-      <ul class="about-values">
-        <li><strong>Hecho a mano</strong> — Cada pieza lleva el trazo y la atención del artesano.</li>
-        <li><strong>Materiales nobles</strong> — Selección cuidadosa de arcillas y esmaltes.</li>
-        <li><strong>Compromiso</strong> — Plazos claros y comunicación directa por los canales que ya conoces.</li>
-      </ul>
-    </section>
+    <!-- Parte 2: calidad (solo texto) -->
+    <div class="about-stage about-stage--dark" aria-labelledby="about-calidad-heading">
+      <div class="about-dark-inner">
+        <h2 id="about-calidad-heading" class="about-dark-title">Calidad e insumos</h2>
+        <p class="about-lead-dark">
+          Todos los productos que fabricamos en nuestra empresa son elaborados con insumos de muy alta calidad.
+        </p>
+        <div class="about-pillars about-pillars--on-dark">
+          <div class="about-pillar about-pillar--glass">
+            <div class="about-pillar-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 11V8a2 2 0 0 0-2-2h-.5a2 2 0 0 0-2 2v8a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V14a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2a8 8 0 0 0 8 8h1a8 8 0 0 0 8-8v-3" />
+              </svg>
+            </div>
+            <p class="about-pillar-text">
+              Los decorados son hechos a mano por personal altamente capacitado, quienes tienen una gran experiencia en
+              la decoración a mano sobre cerámica y gres.
+            </p>
+          </div>
+          <div class="about-pillar about-pillar--glass about-pillar--glow">
+            <div class="about-pillar-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+              </svg>
+            </div>
+            <p class="about-pillar-text">
+              Los productos son sometidos a un proceso de quema en un horno a más de 1050 grados centígrados.
+            </p>
+          </div>
+          <div class="about-pillar about-pillar--glass">
+            <div class="about-pillar-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </div>
+            <p class="about-pillar-text">
+              Los productos son seleccionados por personal altamente calificado para que al cliente le llegue un
+              producto muy bien terminado y de alta calidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="about-cta">
       <p class="about-cta-text">¿Quieres conocer las colecciones o una pieza a medida?</p>
