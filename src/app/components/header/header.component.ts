@@ -62,6 +62,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this.pathOnly().startsWith('/productos');
   }
 
+  isNavAboutActive(): boolean {
+    return this.pathOnly() === '/sobre-nosotros';
+  }
+
+  goAbout(event: Event) {
+    event.preventDefault();
+    this.closeMenu();
+    this.router.navigate(['/sobre-nosotros']);
+  }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     if (this.isMenuOpen) this.cartOpen = false;

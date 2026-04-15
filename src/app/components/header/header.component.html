@@ -41,7 +41,12 @@
         class="nav-link"
         [class.nav-link--active]="isNavHomeActive()"
       >Inicio</a>
-      <a (click)="scrollToSection('about')" class="nav-link">Sobre Nosotros</a>
+      <a
+        href="/sobre-nosotros"
+        (click)="goAbout($event)"
+        class="nav-link"
+        [class.nav-link--active]="isNavAboutActive()"
+      >Sobre Nosotros</a>
       <a
         href="/productos"
         (click)="goProducts($event)"

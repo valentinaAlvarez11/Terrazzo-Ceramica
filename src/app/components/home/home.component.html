@@ -25,7 +25,6 @@
           </div>
         </div>
         <h3 class="value-title">Tierra</h3>
-        <p class="value-description">Materia prima natural seleccionada con cuidado.</p>
       </div>
       <div class="value-divider"></div>
       <div class="value-item value-card">
@@ -36,7 +35,6 @@
           </div>
         </div>
         <h3 class="value-title">Fuego</h3>
-        <p class="value-description">Cocción artesanal que da vida a cada pieza.</p>
       </div>
       <div class="value-divider"></div>
       <div class="value-item value-card">
@@ -47,40 +45,42 @@
           </div>
         </div>
         <h3 class="value-title">Agua</h3>
-        <p class="value-description">Técnica y acabado.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Artisanal Process Section -->
-<section class="section process-section" id="process">
-  <div class="container">
-    <div class="process-flow">
-      <div class="process-step">
-        <div class="process-icon">📐</div>
-        <p class="process-label">Diseño</p>
-      </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-icon">🖌️</div>
-        <p class="process-label">Pintado</p>
-      </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-icon">🏺</div>
-        <p class="process-label">Secado</p>
-      </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-icon">🔥</div>
-        <p class="process-label">Horno</p>
-      </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-icon">✨</div>
-        <p class="process-label">Pieza final</p>
-      </div>
+<section
+  class="section process-section"
+  id="process"
+  role="region"
+  aria-labelledby="process-section-title"
+>
+  <div class="process-section-bg" aria-hidden="true"></div>
+  <div class="container process-section-inner">
+    <header class="process-section-header">
+      <h2 id="process-section-title" class="process-section-title">Proceso de Producción</h2>
+    </header>
+    <div class="process-strip-panel">
+      <ol class="process-strip">
+        @for (step of processSteps; track $index) {
+          <li class="process-strip__item">
+            <div class="process-step">
+              <div class="process-icon">
+                <img
+                  [src]="step.src"
+                  [alt]="step.alt"
+                  class="process-icon-image"
+                  decoding="async"
+                  loading="lazy"
+                />
+              </div>
+              <p class="process-label">{{ step.label }}</p>
+            </div>
+          </li>
+        }
+      </ol>
     </div>
   </div>
 </section>
