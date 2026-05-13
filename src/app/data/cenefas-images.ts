@@ -4,6 +4,7 @@ export const CENEFAS_IMAGES: string[] = [
   'buterfly.png',
   'campanilla.png',
   'capitel.png',
+  'cecilia.png',
   'enredadera.png',
   'hans.png',
   'hojarasca.png',

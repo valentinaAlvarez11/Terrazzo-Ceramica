@@ -1,6 +1,15 @@
 <!-- Hero Section -->
 <section class="hero" id="hero">
-  <div class="hero-background-image"></div>
+  <div class="hero-background-image" aria-hidden="true">
+    <img
+      src="/assets/galapago.png"
+      alt=""
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
   <div class="hero-overlay"></div>
   <div class="container hero-content">
     <h1 class="hero-title">Cerámica pintada a mano</h1>
@@ -21,7 +30,7 @@
         <span class="value-number">1</span>
         <div class="value-icon-wrap">
           <div class="value-icon">
-            <img src="/assets/tierra.png" alt="Tierra" class="value-image">
+            <img src="/assets/tierra.png" alt="Tierra" class="value-image" width="120" height="120" loading="eager" fetchpriority="high" decoding="async">
           </div>
         </div>
         <h3 class="value-title">Tierra</h3>
@@ -31,7 +40,7 @@
         <span class="value-number">2</span>
         <div class="value-icon-wrap">
           <div class="value-icon">
-            <img src="/assets/fuego.png" alt="Fuego" class="value-image">
+            <img src="/assets/fuego.png" alt="Fuego" class="value-image" width="120" height="120" loading="eager" decoding="async">
           </div>
         </div>
         <h3 class="value-title">Fuego</h3>
@@ -41,7 +50,7 @@
         <span class="value-number">3</span>
         <div class="value-icon-wrap">
           <div class="value-icon">
-            <img src="/assets/agua.png" alt="Agua" class="value-image">
+            <img src="/assets/agua.png" alt="Agua" class="value-image" width="120" height="120" loading="eager" decoding="async">
           </div>
         </div>
         <h3 class="value-title">Agua</h3>
@@ -73,7 +82,7 @@
                   [alt]="step.alt"
                   class="process-icon-image"
                   decoding="async"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
               <p class="process-label">{{ step.label }}</p>
@@ -90,11 +99,18 @@
   <div class="container">
     <h2 class="section-title">Colecciones</h2>
     <div class="collections-grid">
-      @for (collection of collections; track collection.name) {
+      @for (collection of collections; track collection.name; let i = $index) {
         <div class="collection-card">
           <div class="collection-image">
             @if (collection.image) {
-              <img [src]="'/' + collection.image" [alt]="collection.name" class="collection-img">
+              <img
+                [src]="'/' + collection.image"
+                [alt]="collection.name"
+                class="collection-img"
+                [attr.loading]="i < 2 ? 'eager' : 'lazy'"
+                [attr.fetchpriority]="i === 0 ? 'high' : null"
+                decoding="async"
+              >
             } @else {
               <div class="image-placeholder">
                 <span class="placeholder-icon">🖼️</span>
@@ -139,8 +155,8 @@
 <!-- Footer -->
 <footer class="footer" id="contact">
   <div class="footer-bg-pattern" aria-hidden="true"></div>
-  <div class="container">
-    <div class="footer-contact">
+  <div class="container footer-contact-wrap">
+    <div class="footer-contact-panel">
       <header class="footer-contact-header">
         <span class="footer-contact-badge">Estamos para ti</span>
         <h3 class="footer-contact-title">Contáctanos</h3>
@@ -193,6 +209,72 @@
           <span class="footer-contact-value">terrazzoceramica</span>
         </a>
       </div>
+    </div>
+  </div>
+
+  <div class="footer-map-stage">
+    <div class="footer-map-stage-accent" aria-hidden="true"></div>
+    <div class="footer-map-stage-blobs" aria-hidden="true"></div>
+    <div class="container footer-map-stage-inner">
+      <section class="footer-map-section" aria-labelledby="footer-map-heading">
+        <header class="footer-map-section-head">
+          <span class="footer-map-kicker">Cómo llegar</span>
+          <h3 id="footer-map-heading" class="footer-map-section-title">Te esperamos en el taller</h3>
+          <p class="footer-map-section-lead">
+            Explora el mapa aquí mismo o abre la ruta en Google Maps en un toque.
+          </p>
+        </header>
+        <div class="footer-map-layout">
+          <aside class="footer-map-aside">
+            <div class="footer-map-intro footer-map-intro--accent">
+              <span class="footer-map-pin" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <div class="footer-map-intro-text">
+                <span class="footer-map-eyebrow">Visítanos</span>
+                <h4 class="footer-map-title">Ubicación</h4>
+                <p class="footer-map-address">{{ businessAddressQuery }}</p>
+              </div>
+            </div>
+          </aside>
+
+          <div class="footer-map-showcase" aria-label="Mapa interactivo">
+            <div class="footer-map-showcase-shell">
+              <div class="footer-map-showcase-glow" aria-hidden="true"></div>
+              <div class="footer-map-showcase-frame">
+                <div class="footer-map-frame-shine" aria-hidden="true"></div>
+                <div class="footer-map-frame-wrap">
+                  <iframe
+                    [src]="mapEmbedSafe"
+                    title="Mapa de ubicación de Terrazzo Cerámica"
+                    loading="lazy"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <a
+              class="footer-map-link"
+              [href]="mapOpenUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg class="footer-map-link-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+              </svg>
+              <span>Abrir ruta en Google Maps</span>
+              <svg class="footer-map-link-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </footer>

@@ -66,10 +66,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this.pathOnly() === '/sobre-nosotros';
   }
 
+  isNavNuestroTrabajoActive(): boolean {
+    return this.pathOnly() === '/nuestro-trabajo';
+  }
+
   goAbout(event: Event) {
     event.preventDefault();
     this.closeMenu();
     this.router.navigate(['/sobre-nosotros']);
+  }
+
+  goNuestroTrabajo(event: Event) {
+    event.preventDefault();
+    this.closeMenu();
+    this.router.navigate(['/nuestro-trabajo']);
   }
 
   toggleMenu() {

@@ -12,13 +12,14 @@ export const PRODUCT_LABEL_OVERRIDES: Record<string, Record<string, string>> = {
     'SASON DEL GORDO.png': 'SAZÓN DEL GORDO',
   },
 
-  'cenefas-png': {
+  'cenefas': {
     'alcala.png': 'ALCALÁ',
     'arabezco.png': 'ARABESCO',
     'bodegon.png': 'BODEGÓN',
     'buterfly.png': 'MARIPOSA',
     'campanilla.png': 'CAMPANILLA',
     'capitel.png': 'CAPITEL',
+    'cecilia.png': 'CECILIA',
     'enredadera.png': 'ENREDADERA',
     'hojarasca.png': 'HOJARASCA',
     'marcopolo.png': 'MARCO POLO',
@@ -36,7 +37,7 @@ export const PRODUCT_LABEL_OVERRIDES: Record<string, Record<string, string>> = {
     'DAMAS CHINA.png': 'DAMAS CHINAS',
   },
 
-  'listelos-en-png': {
+  'listelos': {
     'arabezco.png': 'ARABESCO',
     'bodegon.png': 'BODEGÓN',
     'buterfly.png': 'MARIPOSA',
@@ -56,7 +57,7 @@ export const PRODUCT_LABEL_OVERRIDES: Record<string, Record<string, string>> = {
     'ultima cena.png': 'ÚLTIMA CENA',
   },
 
-  'religiosos-png': {
+  'religiosos': {
     'divino  niño.png': 'DIVINO NIÑO',
     'jesus nazareno.png': 'JESÚS NAZARENO',
     'maria auxiliadora.png': 'MARÍA AUXILIADORA',
@@ -81,7 +82,7 @@ export const PRODUCT_LABEL_OVERRIDES: Record<string, Record<string, string>> = {
     'virgen milagrosa.png': 'VIRGEN MILAGROSA',
   },
 
-  'rosetones-en-png': {
+  'rosetones': {
     'roseton buterfly.png': 'ROSETÓN MARIPOSA',
     'roseton capitel.png': 'ROSETÓN CAPITEL',
     'roseton catedral.png': 'ROSETÓN CATEDRAL',
@@ -135,6 +136,7 @@ export const PRODUCT_LABEL_OVERRIDES: Record<string, Record<string, string>> = {
     'primavera 10x20 ceramica.png': 'PRIMAVERA 10X20 CERÁMICA',
     'primavera 20x20 2.png': 'PRIMAVERA 20X20 2',
     'primavera 20x20.png': 'PRIMAVERA 20X20',
+    'primavera 40x40.png': 'PRIMAVERA 40X40',
     'ringlete 10x20 gres.png': 'RINGLETE 10X20 GRES',
     'roble 10x10.png': 'ROBLE 10X10',
     'rosal 20x30.png': 'ROSAL 20X30',
@@ -146,12 +148,15 @@ export const PRODUCT_LABEL_OVERRIDES: Record<string, Record<string, string>> = {
     'sevillano 20x20 en ceramica.png': 'SEVILLANO 20X20 EN CERÁMICA',
     'sevillano 20x20 en gres.png': 'SEVILLANO 20X20 EN GRES',
     'sevillano 20x30.png': 'SEVILLANO 20X30',
+    'silvestre 20x30.png': 'SILVESTRE 20X30',
     'tropical 20x30.png': 'TROPICAL 20X30',
     'viña 10x20 cermica.png': 'VIÑA 10X20 CERÁMICA',
     'viña 10x20 gres.png': 'VIÑA 10X20 GRES',
   },
 
   'senaletica': {
+    'angel de la guarda .png': 'ÁNGEL DE LA GUARDA',
+    'bendicion del hogar.png': 'BENDICIÓN DEL HOGAR',
     'DAMA  CABALLERO CLASICO.png': 'DAMA Y CABALLERO CLÁSICO',
     'DAMA CABALLERO  PLAYA.png': 'DAMA Y CABALLERO PLAYA',
     'DAMA CABALLERO NOVEAU.png': 'DAMA Y CABALLERO NOUVEAU',
@@ -159,7 +164,7 @@ export const PRODUCT_LABEL_OVERRIDES: Record<string, Record<string, string>> = {
     'FRACES SEVILLANO.png': 'FRASES SEVILLANO',
   },
 
-  'tocetos-en-ceramica': {
+  'tocetos': {
     'ANTICUA.png': 'ANTIGUA',
     'TUNEZ.png': 'TÚNEZ',
     'colibri.png': 'COLIBRÍ',

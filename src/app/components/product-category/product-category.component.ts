@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { getCategoryBySlug, ProductCategory } from '../../data/product-categories';
 import { CartService } from '../../services/cart.service';
 import { AVISOS_ESPECIALES_IMAGES } from '../../data/avisos-especiales-images';
@@ -41,11 +41,32 @@ export class ProductCategoryComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     readonly cart: CartService
   ) {}
 
   ngOnInit() {
     const slug = this.route.snapshot.paramMap.get('slug');
+    if (slug === 'cenefas-png') {
+      void this.router.navigate(['/productos', 'cenefas'], { replaceUrl: true });
+      return;
+    }
+    if (slug === 'listelos-en-png') {
+      void this.router.navigate(['/productos', 'listelos'], { replaceUrl: true });
+      return;
+    }
+    if (slug === 'religiosos-png') {
+      void this.router.navigate(['/productos', 'religiosos'], { replaceUrl: true });
+      return;
+    }
+    if (slug === 'rosetones-en-png') {
+      void this.router.navigate(['/productos', 'rosetones'], { replaceUrl: true });
+      return;
+    }
+    if (slug === 'tocetos-en-ceramica') {
+      void this.router.navigate(['/productos', 'tocetos'], { replaceUrl: true });
+      return;
+    }
     this.category = slug ? getCategoryBySlug(slug) : undefined;
   }
 
@@ -148,15 +169,15 @@ export class ProductCategoryComponent implements OnInit {
         return this.fondosPiscinaImageUrl(filename);
       case 'juegos':
         return this.juegosImageUrl(filename);
-      case 'listelos-en-png':
+      case 'listelos':
         return this.listelosImageUrl(filename);
       case 'murales':
         return this.muralesImageUrl(filename);
-      case 'cenefas-png':
+      case 'cenefas':
         return this.cenefasImageUrl(filename);
-      case 'religiosos-png':
+      case 'religiosos':
         return this.religiososImageUrl(filename);
-      case 'rosetones-en-png':
+      case 'rosetones':
         return this.rosetonesImageUrl(filename);
       case 'nomenclaturas':
         return this.nomenclaturasImageUrl(filename);

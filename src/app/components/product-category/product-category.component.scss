@@ -151,7 +151,8 @@
   object-fit: contain;
 }
 
-.product-card-with-cart .cenefas-img {
+.product-card-with-cart .cenefas-img,
+.product-card-with-cart .listelos-img {
   flex: 0 0 auto;
   max-height: none;
   min-height: 0;
@@ -313,23 +314,26 @@
   display: block;
 }
 
-.cenefas-img {
+.cenefas-img,
+.listelos-img {
   /* Misma proporción para todas: evitamos recortes y "letterboxing" */
   object-fit: contain !important;
   width: 100%;
   height: auto !important;
-  aspect-ratio: 967 / 292; /* se ajusta al tamaño de las CENEFAS */
+  aspect-ratio: 967 / 292; /* proporción tipo franja (cenefas / listelos) */
   background: transparent !important;
   display: block;
 }
 
-.cenefas-caption {
+.cenefas-caption,
+.listelos-caption {
   /* Ajuste fino para que la tarjeta no quede "esponjosa" */
   padding: var(--spacing-xs) var(--spacing-sm) !important;
   font-size: 0.92rem !important;
 }
 
-.cenefas-modal-img {
+.cenefas-modal-img,
+.listelos-modal-img {
   object-fit: contain !important;
   width: 100%;
   height: auto !important;

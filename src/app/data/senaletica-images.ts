@@ -1,4 +1,6 @@
 export const SENALETICA_IMAGES: string[] = [
+  'angel de la guarda .png',
+  'bendicion del hogar.png',
   'DAMA  CABALLERO CLASICO.png',
   'DAMA CABALLERO  PLAYA.png',
   'DAMA CABALLERO NOVEAU.png',

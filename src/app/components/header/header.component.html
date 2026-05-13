@@ -53,6 +53,12 @@
         class="nav-link"
         [class.nav-link--active]="isNavProductsActive()"
       >Productos</a>
+      <a
+        href="/nuestro-trabajo"
+        (click)="goNuestroTrabajo($event)"
+        class="nav-link"
+        [class.nav-link--active]="isNavNuestroTrabajoActive()"
+      >Nuestro Trabajo</a>
       <a (click)="scrollToSection('contact')" class="nav-link">Contacto</a>
     </nav>
 

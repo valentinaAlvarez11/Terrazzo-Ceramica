@@ -117,7 +117,7 @@
             </div>
           </div>
         }
-      } @else if (category.slug === 'listelos-en-png') {
+      } @else if (category.slug === 'listelos') {
         <div class="avisos-grid">
           @for (filename of listelosImages; track filename) {
             <div class="product-card-with-cart">
@@ -128,8 +128,8 @@
                 [attr.aria-label]="'Ver ' + avisoLabel(filename)"
               >
                 <figure class="avisos-card">
-                  <img class="avisos-img" [src]="listelosImageUrl(filename)" [alt]="avisoLabel(filename)">
-                  <figcaption class="avisos-caption">{{ avisoLabel(filename) }}</figcaption>
+                  <img class="avisos-img listelos-img" [src]="listelosImageUrl(filename)" [alt]="avisoLabel(filename)">
+                  <figcaption class="avisos-caption listelos-caption">{{ avisoLabel(filename) }}</figcaption>
                 </figure>
               </button>
               <button type="button" class="btn-add-cart" (click)="addFilenameToCart($event, filename)">Añadir al carrito</button>
@@ -145,7 +145,7 @@
               </button>
 
               <img
-                class="avisos-modal-img"
+                class="avisos-modal-img listelos-modal-img"
                 [src]="listelosImageUrl(selectedAvisoFilename)"
                 [alt]="avisoLabel(selectedAvisoFilename)"
               >
@@ -191,7 +191,7 @@
             </div>
           </div>
         }
-      } @else if (category.slug === 'cenefas-png') {
+      } @else if (category.slug === 'cenefas') {
         <div class="avisos-grid">
           @for (filename of cenefasImages; track filename) {
             <div class="product-card-with-cart">
@@ -232,7 +232,7 @@
             </div>
           </div>
         }
-      } @else if (category.slug === 'religiosos-png') {
+      } @else if (category.slug === 'religiosos') {
         <div class="avisos-grid">
           @for (filename of religiososImages; track filename) {
             <div class="product-card-with-cart">
@@ -269,7 +269,7 @@
             </div>
           </div>
         }
-      } @else if (category.slug === 'rosetones-en-png') {
+      } @else if (category.slug === 'rosetones') {
         <div class="avisos-grid">
           @for (filename of rosetonesImages; track filename) {
             <div class="product-card-with-cart">
@@ -380,7 +380,7 @@
             </div>
           </div>
         }
-      } @else if (category.slug === 'tocetos-en-ceramica') {
+      } @else if (category.slug === 'tocetos') {
         <div class="tocetos-catalog">
           <p class="tocetos-intro">
             Catálogo de tocetos: <strong>Línea artística</strong> y <strong>Línea legado</strong>.

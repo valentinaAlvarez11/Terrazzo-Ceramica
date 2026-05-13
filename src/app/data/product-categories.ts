@@ -10,7 +10,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     slug: 'avisos-especiales',
     image: 'assets/AVISOS ESPECIALES/VILLA DIANA.png',
   },
-  { name: 'CENEFAS', slug: 'cenefas-png', image: 'assets/cenefas/alcala.png' },
+  { name: 'CENEFAS', slug: 'cenefas', image: 'assets/cenefas/alcala.png' },
   {
     name: 'FONDOS DE PISCINA',
     slug: 'fondos-piscina',
@@ -23,7 +23,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     name: 'LISTELOS',
-    slug: 'listelos-en-png',
+    slug: 'listelos',
     image: 'assets/listelos/romanica.png',
   },
   {
@@ -38,12 +38,12 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     name: 'RELIGIOSOS',
-    slug: 'religiosos-png',
+    slug: 'religiosos',
     image: 'assets/religiosos/virgen guadalupe.png',
   },
   {
     name: 'ROSETONES',
-    slug: 'rosetones-en-png',
+    slug: 'rosetones',
     image: 'assets/rosetones/rosetone jardinera.png',
   },
   {
@@ -53,7 +53,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     name: 'TOCETOS',
-    slug: 'tocetos-en-ceramica',
+    slug: 'tocetos',
     image: 'assets/tocetos en ceramica 10,2x10,2/MEDIEVAL.png',
   },
 ];

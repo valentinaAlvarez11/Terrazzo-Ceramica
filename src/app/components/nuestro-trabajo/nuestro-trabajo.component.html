@@ -1,0 +1,98 @@
+<article class="section nuestro-trabajo-page" aria-labelledby="nuestro-trabajo-title">
+  <div class="container nuestro-trabajo-inner">
+    <header class="nuestro-trabajo-hero">
+      <span class="nuestro-trabajo-badge">Terrazzo Cerámica</span>
+      <h1 id="nuestro-trabajo-title" class="nuestro-trabajo-title">Nuestro trabajo</h1>
+      <p class="nuestro-trabajo-lead">
+        Piezas elaboradas a mano en el taller: muralería, cenefas, listelos y piezas únicas para hogares y espacios
+        comerciales. Así se ve el proceso y el resultado en la vida real.
+      </p>
+    </header>
+
+    <div class="nuestro-trabajo-toolbar" aria-label="Filtrar galería">
+      @for (f of filters; track f.id) {
+        <button
+          type="button"
+          class="nuestro-trabajo-chip"
+          [class.nuestro-trabajo-chip--active]="activeFilter() === f.id"
+          (click)="setFilter(f.id)"
+        >
+          {{ f.label }}
+        </button>
+      }
+    </div>
+
+    @if (loading()) {
+      <p class="nuestro-trabajo-state" role="status">Cargando galería…</p>
+    } @else if (loadError()) {
+      <p class="nuestro-trabajo-state nuestro-trabajo-state--error" role="alert">
+        No se pudo cargar la galería. Volvé a intentar más tarde.
+      </p>
+    } @else {
+      <p class="nuestro-trabajo-count">
+        {{ filteredPhotos().length }}
+        {{ filteredPhotos().length === 1 ? 'foto' : 'fotos' }}
+        @if (activeFilter() !== 'all') {
+          <span class="nuestro-trabajo-count-hint">en esta categoría</span>
+        }
+      </p>
+
+      <div class="nuestro-trabajo-masonry" role="list">
+        @for (p of filteredPhotos(); track p.file; let i = $index) {
+          <button
+            type="button"
+            class="nuestro-trabajo-tile"
+            role="listitem"
+            (click)="openLightbox(i)"
+            [attr.aria-label]="'Ampliar imagen ' + (i + 1) + ' de ' + filteredPhotos().length"
+          >
+            <span class="nuestro-trabajo-tile-frame">
+              <img [src]="p.src" [alt]="p.alt" loading="lazy" decoding="async" />
+            </span>
+            <span class="nuestro-trabajo-tile-shine" aria-hidden="true"></span>
+          </button>
+        }
+      </div>
+    }
+  </div>
+</article>
+
+@if (lightboxPhoto(); as current) {
+  <div
+    class="nuestro-trabajo-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Vista ampliada"
+    (click)="closeLightbox()"
+  >
+    <div class="nuestro-trabajo-lightbox-inner" (click)="$event.stopPropagation()">
+      <button type="button" class="nuestro-trabajo-lightbox-close" (click)="closeLightbox()" aria-label="Cerrar">
+        ×
+      </button>
+      @if (filteredPhotos().length > 1) {
+        <button
+          type="button"
+          class="nuestro-trabajo-lightbox-nav nuestro-trabajo-lightbox-nav--prev"
+          (click)="lightboxPrev()"
+          aria-label="Imagen anterior"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          class="nuestro-trabajo-lightbox-nav nuestro-trabajo-lightbox-nav--next"
+          (click)="lightboxNext()"
+          aria-label="Imagen siguiente"
+        >
+          ›
+        </button>
+      }
+      <figure class="nuestro-trabajo-lightbox-figure">
+        <img [src]="current.src" [alt]="current.alt" decoding="async" />
+        <figcaption class="nuestro-trabajo-lightbox-caption">
+          {{ (lightboxIndex() ?? 0) + 1 }} / {{ filteredPhotos().length }}
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+}
